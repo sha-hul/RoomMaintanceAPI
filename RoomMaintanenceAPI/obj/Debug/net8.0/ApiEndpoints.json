@@ -1,0 +1,495 @@
+[
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMasterController",
+    "Method": "Create",
+    "RelativePath": "api/ApartmentMaster/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.ApartmentCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMasterController",
+    "Method": "GetAll",
+    "RelativePath": "api/ApartmentMaster/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMasterController",
+    "Method": "Update",
+    "RelativePath": "api/ApartmentMaster/UpdateApartment/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.ApartmentUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMasterController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/ApartmentMaster/UpdateStatus/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.ApartmentStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.CategoryMasterController",
+    "Method": "Create",
+    "RelativePath": "api/CategoryMaster/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.CategoryCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.CategoryMasterController",
+    "Method": "GetAll",
+    "RelativePath": "api/CategoryMaster/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.CategoryMasterController",
+    "Method": "Update",
+    "RelativePath": "api/CategoryMaster/UpdateCategory/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.CategoryUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.CategoryMasterController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/CategoryMaster/UpdateStatus/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.CategoryStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.EmpDashboardController",
+    "Method": "GetRequestDetails",
+    "RelativePath": "api/EmpDashboard/getRequestdetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.FacilityMasterController",
+    "Method": "Create",
+    "RelativePath": "api/FacilityMaster/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.FacilityCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.FacilityMasterController",
+    "Method": "GetAll",
+    "RelativePath": "api/FacilityMaster/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.FacilityMasterController",
+    "Method": "GetLocationsByFacility",
+    "RelativePath": "api/FacilityMaster/locations/{facilityId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "facilityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.FacilityMasterController",
+    "Method": "Update",
+    "RelativePath": "api/FacilityMaster/UpdateFacility/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.FacilityUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.FacilityMasterController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/FacilityMaster/UpdateStatus/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.FacilityStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.LocationMasterController",
+    "Method": "Create",
+    "RelativePath": "api/LocationMaster/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.LocationCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.LocationMasterController",
+    "Method": "GetAll",
+    "RelativePath": "api/LocationMaster/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.LocationMasterController",
+    "Method": "Update",
+    "RelativePath": "api/LocationMaster/UpdateLocation/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.LocationUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.LocationMasterController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/LocationMaster/UpdateStatus/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.LocationStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/Login/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "RoomMaintenanceAPI.DTO.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.MaintenanceRequestController",
+    "Method": "GetApartmentsByLocation",
+    "RelativePath": "api/MaintenanceRequest/apartments/{locationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "locationId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.MaintenanceRequestController",
+    "Method": "GetCategories",
+    "RelativePath": "api/MaintenanceRequest/categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.MaintenanceRequestController",
+    "Method": "GetAll",
+    "RelativePath": "api/MaintenanceRequest/getFacilities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.MaintenanceRequestController",
+    "Method": "GetLocationsByFacility",
+    "RelativePath": "api/MaintenanceRequest/locations/{facilityId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "facilityId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.MaintenanceRequestController",
+    "Method": "GetSubCategoriesByCategory",
+    "RelativePath": "api/MaintenanceRequest/subcategories/{categoryId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.MaintenanceRequestController",
+    "Method": "SubmitRequest",
+    "RelativePath": "api/MaintenanceRequest/SubmitRequest",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.MaintenanceRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.SubCategoryMasterController",
+    "Method": "Create",
+    "RelativePath": "api/SubCategoryMaster/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.SubCategoryCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.SubCategoryMasterController",
+    "Method": "GetAll",
+    "RelativePath": "api/SubCategoryMaster/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.SubCategoryMasterController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/SubCategoryMaster/UpdateStatus/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.SubCategoryStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.SubCategoryMasterController",
+    "Method": "Update",
+    "RelativePath": "api/SubCategoryMaster/UpdateSubCategory/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.SubCategoryUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[RoomMaintenanceAPI.WeatherForecast, RoomMaintenanceAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

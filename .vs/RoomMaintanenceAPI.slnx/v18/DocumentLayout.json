@@ -1,0 +1,150 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\MyApp\\RoomMaintenanceAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|c:\\myapp\\roommaintenanceapi\\roommaintanenceapi\\controllers\\empdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|solutionrelative:roommaintanenceapi\\controllers\\empdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|c:\\myapp\\roommaintenanceapi\\roommaintanenceapi\\controllers\\apartmentmastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|solutionrelative:roommaintanenceapi\\controllers\\apartmentmastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|c:\\myapp\\roommaintenanceapi\\roommaintanenceapi\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|solutionrelative:roommaintanenceapi\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|c:\\myapp\\roommaintenanceapi\\roommaintanenceapi\\models\\apartmentmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|solutionrelative:roommaintanenceapi\\models\\apartmentmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|c:\\myapp\\roommaintenanceapi\\roommaintanenceapi\\dto\\maintenancerequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|solutionrelative:roommaintanenceapi\\dto\\maintenancerequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|c:\\myapp\\roommaintenanceapi\\roommaintanenceapi\\controllers\\locationmastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|solutionrelative:roommaintanenceapi\\controllers\\locationmastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|c:\\myapp\\roommaintenanceapi\\roommaintanenceapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|solutionrelative:roommaintanenceapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|c:\\myapp\\roommaintenanceapi\\roommaintanenceapi\\models\\locationmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0208A77-2C23-2621-2E00-64A1FF2D2352}|RoomMaintanenceAPI\\RoomMaintenanceAPI.csproj|solutionrelative:roommaintanenceapi\\models\\locationmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmpDashboardController.cs",
+              "DocumentMoniker": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Controllers\\EmpDashboardController.cs",
+              "RelativeDocumentMoniker": "RoomMaintanenceAPI\\Controllers\\EmpDashboardController.cs",
+              "ToolTip": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Controllers\\EmpDashboardController.cs",
+              "RelativeToolTip": "RoomMaintanenceAPI\\Controllers\\EmpDashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T07:53:06.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApartmentMaster.cs",
+              "DocumentMoniker": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Models\\ApartmentMaster.cs",
+              "RelativeDocumentMoniker": "RoomMaintanenceAPI\\Models\\ApartmentMaster.cs",
+              "ToolTip": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Models\\ApartmentMaster.cs",
+              "RelativeToolTip": "RoomMaintanenceAPI\\Models\\ApartmentMaster.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T12:02:15.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MaintenanceRequestDto.cs",
+              "DocumentMoniker": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\DTO\\MaintenanceRequestDto.cs",
+              "RelativeDocumentMoniker": "RoomMaintanenceAPI\\DTO\\MaintenanceRequestDto.cs",
+              "ToolTip": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\DTO\\MaintenanceRequestDto.cs",
+              "RelativeToolTip": "RoomMaintanenceAPI\\DTO\\MaintenanceRequestDto.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAEwDEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T12:01:36.091Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LocationMaster.cs",
+              "DocumentMoniker": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Models\\LocationMaster.cs",
+              "RelativeDocumentMoniker": "RoomMaintanenceAPI\\Models\\LocationMaster.cs",
+              "ToolTip": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Models\\LocationMaster.cs",
+              "RelativeToolTip": "RoomMaintanenceAPI\\Models\\LocationMaster.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T09:58:45.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApartmentMasterController.cs",
+              "DocumentMoniker": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Controllers\\ApartmentMasterController.cs",
+              "RelativeDocumentMoniker": "RoomMaintanenceAPI\\Controllers\\ApartmentMasterController.cs",
+              "ToolTip": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Controllers\\ApartmentMasterController.cs",
+              "RelativeToolTip": "RoomMaintanenceAPI\\Controllers\\ApartmentMasterController.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAQwEMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T07:58:50.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LocationMasterController.cs",
+              "DocumentMoniker": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Controllers\\LocationMasterController.cs",
+              "RelativeDocumentMoniker": "RoomMaintanenceAPI\\Controllers\\LocationMasterController.cs",
+              "ToolTip": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Controllers\\LocationMasterController.cs",
+              "RelativeToolTip": "RoomMaintanenceAPI\\Controllers\\LocationMasterController.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAMwEQAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T07:58:50.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "RoomMaintanenceAPI\\AppDbContext.cs",
+              "ToolTip": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\AppDbContext.cs",
+              "RelativeToolTip": "RoomMaintanenceAPI\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T08:17:43.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "RoomMaintanenceAPI\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\MyApp\\RoomMaintenanceAPI\\RoomMaintanenceAPI\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "RoomMaintanenceAPI\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAApwBoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T08:10:39.682Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
