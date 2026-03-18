@@ -1,0 +1,623 @@
+{
+  "info": {
+    "_postman_id": "e56cce99-0a47-433e-942b-8ecaca9f3a2e",
+    "name": "Room Maintanance",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51465894",
+    "_collection_link": "https://go.postman.co/collection/51465894-e56cce99-0a47-433e-942b-8ecaca9f3a2e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "FacilityMaster",
+      "item": [
+        {
+          "name": "FacilityGetAll",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/FacilityMaster/GetAll",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "FacilityMaster",
+                "GetAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateFacility",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Damma\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/FacilityMaster/UpdateFacility/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "FacilityMaster",
+                "UpdateFacility",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateFacilityStatus",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/FacilityMaster/UpdateStatus/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "FacilityMaster",
+                "UpdateStatus",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateFacility",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Jeddha\" ,\r\n    \"status\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/FacilityMaster/Create",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "FacilityMaster",
+                "Create"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ApartmentMaster",
+      "item": [
+        {
+          "name": "ApartmentGetAll",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/ApartmentMaster/GetAll",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "ApartmentMaster",
+                "GetAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateApartment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"facilityId\": 1,\n    \"name\":\"K3\" ,\n    \"status\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/ApartmentMaster/Create",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "ApartmentMaster",
+                "Create"
+              ]
+            },
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateApartment",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"facilityId\":1,\r\n    \"name\": \"K Villa\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/ApartmentMaster/UpdateApartment/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "ApartmentMaster",
+                "UpdateApartment",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateApartmentStatus",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/ApartmentMaster/UpdateStatus/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "ApartmentMaster",
+                "UpdateStatus",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "CategoryMaster",
+      "item": [
+        {
+          "name": "CategoryGetAll",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/CategoryMaster/GetAll",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "CategoryMaster",
+                "GetAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateCategory",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Electronics\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/CategoryMaster/UpdateCategory/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "CategoryMaster",
+                "UpdateCategory",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateCategoryStatus",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/CategoryMaster/UpdateStatus/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "CategoryMaster",
+                "UpdateStatus",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateCategory",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Plumbing\" ,\r\n    \"status\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/CategoryMaster/Create",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "CategoryMaster",
+                "Create"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "SubCategoryMaster",
+      "item": [
+        {
+          "name": "SubCategoryGetAll",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/SubCategoryMaster/GetAll",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "SubCategoryMaster",
+                "GetAll"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreateSubCategory",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"categoryId\": 1,\n    \"name\":\"Water Leaka\" ,\n    \"status\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/SubCategoryMaster/Create",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "SubCategoryMaster",
+                "Create"
+              ]
+            },
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateSubCategory",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"categoryId\":1,\r\n    \"name\": \"Water Leakage\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/SubCategoryMaster/UpdateSubCategory/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "SubCategoryMaster",
+                "UpdateSubCategory",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateSubCategoryStatus",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7173/api/SubCategoryMaster/UpdateStatus/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7173",
+              "path": [
+                "api",
+                "SubCategoryMaster",
+                "UpdateStatus",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "CreateRequest",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"employeeName\": \"Shahul Hameed\",\n    \"contactNo\": \"+966 543553692\",\n    \"facility\": 3,\n    \"apartment\": 204,\n    \"roomNo\": \"A-204\",\n    \"category\": 1,\n    \"subCategory\": 4,\n    \"description\": \"AC not cooling properly and making loud noise.\",\n    \"attachment\": \"ac_issue_photo.jpg\",\n    \"statusId\": 1,\n    \"updatedBy\": \"admin.user\",\n    \"empId\":\"C2064\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7173/api/MaintenanceRequest/SubmitRequest",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7173",
+          "path": [
+            "api",
+            "MaintenanceRequest",
+            "SubmitRequest"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"empId\": \"EMP001\",\r\n  \"password\": \"pass123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7173/api/Login/login",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7173",
+          "path": [
+            "api",
+            "Login",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
