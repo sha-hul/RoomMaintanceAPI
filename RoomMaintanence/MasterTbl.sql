@@ -1,0 +1,12 @@
+---------------rvp.mstFacility---------------
+
+--CREATE TABLE rvp.mstFacility (
+--    facilityId INT IDENTITY(1,1) PRIMARY KEY,
+--    facilityName NVARCHAR(150) NOT NULL,
+--    facilityCode NVARCHAR(50) NOT NULL UNIQUE,
+--    createdBy NVARCHAR(100) NOT NULL,
+--    dtCreated DATETIME NOT NULL DEFAULT SYSDATETIME(),
+--    updatedBy NVARCHAR(100) NULL,
+--    dtUpdated DATETIME NULL,
+--    isActive BIT NOT NULL DEFAULT 1
+--);
