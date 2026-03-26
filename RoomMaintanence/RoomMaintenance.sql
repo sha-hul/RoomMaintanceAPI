@@ -49,7 +49,7 @@ select * from rvp.trnrequest req
 
 select * from rvp.FacilityMaster
 
-select * from rvp.LocationMaster
+select * from rvp.LocationMaster where IsActive =1
 
 select * from rvp.ApartmentMaster
 
@@ -58,3 +58,16 @@ select * from rvp.CategoryMaster
 select * from rvp.SubCategoryMaster
 
 select * from rvp.EmployeeMaster
+
+--update rvp.trnrequestdetails set empid = 'EMP001' where empid = 'C2064'
+
+select * from rvp.mstStatus order by 1
+
+--update rvp.mstStatus set statusName = 'Rejected' where statusId = 4
+
+ALTER TABLE rvp.trnrequest
+ADD admin NVARCHAR(200),
+    adminRemark NVARCHAR(1000),
+    technician NVARCHAR(200);
+
+sp_help 'rvp.trnrequestdetails'
