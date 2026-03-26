@@ -15,4 +15,11 @@
         //navigation property
         public LocationMaster Location { get; set; }
     }
-}   
+    public class QrRequest
+    {
+        public string facid { get; set; }
+        public string locid { get; set; }
+        public string apart { get; set; }
+    }
+    
+}

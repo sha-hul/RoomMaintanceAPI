@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.AdminDashboardController",
+    "Method": "GetRequestDetails",
+    "RelativePath": "api/AdminDashboard/getRequestdetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMasterController",
     "Method": "Create",
     "RelativePath": "api/ApartmentMaster/Create",
@@ -10,6 +26,38 @@
       {
         "Name": "dto",
         "Type": "RoomMaintenanceAPI.DTO.ApartmentCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMasterController",
+    "Method": "DecryptQr",
+    "RelativePath": "api/ApartmentMaster/decrypt",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "RoomMaintenanceAPI.Models.QrRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMasterController",
+    "Method": "EncryptQr",
+    "RelativePath": "api/ApartmentMaster/encrypt",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "RoomMaintenanceAPI.Models.QrRequest",
         "IsRequired": true
       }
     ],

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using RoomMaintenanceAPI.DTO;
 using RoomMaintenanceAPI.Models;
+using System.Runtime;
 
 namespace RoomMaintenanceAPI.Controllers
 {
@@ -11,10 +13,12 @@ namespace RoomMaintenanceAPI.Controllers
     public class ApartmentMasterController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly URL _settings;
 
-        public ApartmentMasterController(AppDbContext context)
+        public ApartmentMasterController(AppDbContext context, IOptions<URL> settings)
         {
             _context = context;
+            _settings = settings.Value;
         }
 
         [HttpGet("GetAll")]
@@ -38,7 +42,7 @@ namespace RoomMaintenanceAPI.Controllers
                         updatedBy = a.UpdatedBy,
                         updatedDate = a.UpdatedDate
                     })
-                    .ToListAsync();
+                    .ToListAsync();     
 
                 return Ok(list);
             }
@@ -126,6 +130,34 @@ namespace RoomMaintenanceAPI.Controllers
             {
                 return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateStatusApartment", "ApartmentMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
             }
+        }
+
+        [HttpPost("encrypt")]
+        public IActionResult EncryptQr([FromBody] QrRequest req)
+        {
+            var baseurl = _settings.urlUI;
+            var fac = CryptoHelper.Encrypt(req.facid.ToString());
+            var loc = CryptoHelper.Encrypt(req.locid.ToString());
+            var apart = CryptoHelper.Encrypt(req.apart);
+
+            var url = $"{baseurl}ApartmentMicrosite?facid={Uri.EscapeDataString(fac)}&locid={Uri.EscapeDataString(loc)}&apart={Uri.EscapeDataString(apart)}";
+
+            return Ok(new { encryptedUrl = url });
+        }
+
+        [HttpPost("decrypt")]
+        public IActionResult DecryptQr([FromBody] QrRequest req)
+        {
+            var fac = CryptoHelper.Decrypt(req.facid);
+            var loc = CryptoHelper.Decrypt(req.locid);
+            var apart = CryptoHelper.Decrypt(req.apart);
+
+            return Ok(new
+            {
+                facid = fac,
+                locid = loc,
+                apart
+            });
         }
     }
 }

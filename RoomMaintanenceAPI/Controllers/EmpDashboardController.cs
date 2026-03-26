@@ -32,7 +32,7 @@ namespace RoomMaintenanceAPI.Controllers
                     join SCM in _context.SubCategoryMaster
                         on reqD.SubCategory equals SCM.Id into scmJoin
                     from SCM in scmJoin.DefaultIfEmpty()
-                        
+
                     where reqD.EmpId == empId
                     orderby req.RequestId ascending
 

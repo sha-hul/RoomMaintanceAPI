@@ -56,6 +56,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
+//URL 
+builder.Services.Configure<URL>(builder.Configuration.GetSection("URL"));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

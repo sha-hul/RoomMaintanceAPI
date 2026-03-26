@@ -7,7 +7,7 @@ namespace RoomMaintenanceAPI
     public class Common
     {
         //To Build the error log
-        public ErrorLog WriteErrorLog(string ApiName, string? ControllerName, string? RequestPayload, string ErrorMessage, string? ErrorCode,  string? LoggedBy)
+        public ErrorLog WriteErrorLog(string ApiName, string? ControllerName, string? RequestPayload, string ErrorMessage, string? ErrorCode, string? LoggedBy)
         {
             return new ErrorLog
             {
@@ -29,6 +29,9 @@ namespace RoomMaintenanceAPI
                 return Convert.ToBase64String(hash);
             }
         }
-
+    }
+    public class URL
+    {
+        public string urlUI { get; set; }
     }
 }
