@@ -99,7 +99,7 @@ namespace RoomMaintenanceAPI.Controllers
             switch (statusId)
             {
                 case 1: return "Pending";
-                case 2: return "InProcess";
+                case 2: return "InProgress";
                 case 3: return "OnHold";
                 case 4: return "Rejected";
                 case 5: return "Closed";

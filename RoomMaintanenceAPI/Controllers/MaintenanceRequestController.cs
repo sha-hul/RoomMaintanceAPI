@@ -27,7 +27,7 @@ namespace RoomMaintenanceAPI.Controllers
                 // 1. Insert into trnrequest
                 var request = new TrnRequest
                 {
-                    StatusId = dto.StatusId,
+                    StatusId = 1, //Pending
                     UpdatedBy = dto.UpdatedBy,
                     DtTransaction = DateTime.Now,
                     UpdatedAt = DateTime.Now

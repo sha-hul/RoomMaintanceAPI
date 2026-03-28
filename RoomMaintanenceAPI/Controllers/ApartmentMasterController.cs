@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using RoomMaintenanceAPI.DTO;
 using RoomMaintenanceAPI.Models;
-using System.Runtime;
 
 namespace RoomMaintenanceAPI.Controllers
 {
@@ -27,7 +25,7 @@ namespace RoomMaintenanceAPI.Controllers
             try
             {
                 var list = await _context.ApartmentMaster
-                    .Include(a => a.Location) 
+                    .Include(a => a.Location)
                     .Select(a => new
                     {
                         id = a.Id,
@@ -42,7 +40,7 @@ namespace RoomMaintenanceAPI.Controllers
                         updatedBy = a.UpdatedBy,
                         updatedDate = a.UpdatedDate
                     })
-                    .ToListAsync();     
+                    .ToListAsync();
 
                 return Ok(list);
             }
@@ -75,7 +73,7 @@ namespace RoomMaintenanceAPI.Controllers
                 _context.ApartmentMaster.Add(apartment);
                 await _context.SaveChangesAsync();
 
-            }   
+            }
             catch (Exception ex)
             {
                 return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateApartment", "ApartmentMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
@@ -93,7 +91,7 @@ namespace RoomMaintenanceAPI.Controllers
                 if (apartment == null)
                     return NotFound();
 
-                apartment.LocationID= dto.LocationId;
+                apartment.LocationID = dto.LocationId;
                 apartment.ApartmentName = dto.Name;
                 apartment.UpdatedBy = "admin"; //#Shahul# EmpID JWT Token Implementation 
                 apartment.UpdatedDate = DateTime.Now;
@@ -145,19 +143,6 @@ namespace RoomMaintenanceAPI.Controllers
             return Ok(new { encryptedUrl = url });
         }
 
-        [HttpPost("decrypt")]
-        public IActionResult DecryptQr([FromBody] QrRequest req)
-        {
-            var fac = CryptoHelper.Decrypt(req.facid);
-            var loc = CryptoHelper.Decrypt(req.locid);
-            var apart = CryptoHelper.Decrypt(req.apart);
-
-            return Ok(new
-            {
-                facid = fac,
-                locid = loc,
-                apart
-            });
-        }
+        
     }
 }

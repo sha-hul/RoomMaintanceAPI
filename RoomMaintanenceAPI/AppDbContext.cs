@@ -24,6 +24,9 @@ namespace RoomMaintenanceAPI
         public DbSet<ErrorLog> ErrorLog { get; set; }
         //Login table
         public DbSet<Users> Users { get; set; }
+        //Status Master table
+        public DbSet<MstStatus> MstStatus { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -142,6 +145,12 @@ namespace RoomMaintenanceAPI
              .ToTable("EmployeeMaster", "rvp")
              .HasKey(u => u.EmpId);
 
+            // -----------------------------
+            // mstStatus Table Mapping
+            // -----------------------------
+            modelBuilder.Entity<MstStatus>()
+             .ToTable("mstStatus", "rvp")
+             .HasKey(u => u.StatusId);
 
         }
     }

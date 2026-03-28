@@ -33,22 +33,6 @@
   },
   {
     "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMasterController",
-    "Method": "DecryptQr",
-    "RelativePath": "api/ApartmentMaster/decrypt",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "req",
-        "Type": "RoomMaintenanceAPI.Models.QrRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMasterController",
     "Method": "EncryptQr",
     "RelativePath": "api/ApartmentMaster/encrypt",
     "HttpMethod": "POST",
@@ -111,6 +95,64 @@
         "Name": "dto",
         "Type": "RoomMaintenanceAPI.DTO.ApartmentStatusDto",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMicrositeController",
+    "Method": "DecryptQr",
+    "RelativePath": "api/ApartmentMicrosite/decrypt",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "RoomMaintenanceAPI.Models.QrRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMicrositeController",
+    "Method": "GetApartmentDetails",
+    "RelativePath": "api/ApartmentMicrosite/getApartmentDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "facid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "locid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "apart",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMicrositeController",
+    "Method": "GetApartmentRequestDetails",
+    "RelativePath": "api/ApartmentMicrosite/getApartmentRequestDetails",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "appId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

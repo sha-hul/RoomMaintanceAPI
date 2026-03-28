@@ -184,10 +184,70 @@
         }
       }
     },
-    "/api/ApartmentMaster/decrypt": {
+    "/api/ApartmentMicrosite/getApartmentDetails": {
+      "get": {
+        "tags": [
+          "ApartmentMicrosite"
+        ],
+        "parameters": [
+          {
+            "name": "facid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "locid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "apart",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ApartmentMicrosite/getApartmentRequestDetails": {
+      "get": {
+        "tags": [
+          "ApartmentMicrosite"
+        ],
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ApartmentMicrosite/decrypt": {
       "post": {
         "tags": [
-          "ApartmentMaster"
+          "ApartmentMicrosite"
         ],
         "requestBody": {
           "content": {
@@ -1153,18 +1213,6 @@
       "MaintenanceRequestDto": {
         "type": "object",
         "properties": {
-          "employeeName": {
-            "type": "string",
-            "nullable": true
-          },
-          "empId": {
-            "type": "string",
-            "nullable": true
-          },
-          "contactNo": {
-            "type": "string",
-            "nullable": true
-          },
           "facility": {
             "type": "integer",
             "format": "int32"
@@ -1193,11 +1241,19 @@
             "type": "string",
             "nullable": true
           },
-          "statusId": {
-            "type": "integer",
-            "format": "int32"
+          "employeeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactNo": {
+            "type": "string",
+            "nullable": true
           },
           "updatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "empId": {
             "type": "string",
             "nullable": true
           }

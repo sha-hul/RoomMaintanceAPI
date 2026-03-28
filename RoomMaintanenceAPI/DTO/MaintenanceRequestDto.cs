@@ -2,9 +2,6 @@
 {
     public class MaintenanceRequestDto
     {
-        public string EmployeeName { get; set; }
-        public string EmpId { get; set; }
-        public string ContactNo { get; set; }
         public int Facility { get; set; }
         public int Location { get; set; }
         public int Apartment { get; set; }
@@ -12,8 +9,10 @@
         public int SubCategory { get; set; }
         public string Description { get; set; }
         public string? Attachment { get; set; }
-        public int StatusId { get; set; }
+        public string EmployeeName { get; set; }
+        public string ContactNo { get; set; }
         public string UpdatedBy { get; set; }
+        public string EmpId { get; set; }
     }
     public class FacilityCreateDto
     {
