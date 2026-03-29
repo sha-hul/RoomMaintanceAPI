@@ -16,6 +16,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.AdminDashboardController",
+    "Method": "UpdateAction",
+    "RelativePath": "api/AdminDashboard/updateAction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.AdminActionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMasterController",
     "Method": "Create",
     "RelativePath": "api/ApartmentMaster/Create",
@@ -124,18 +140,18 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "facid",
-        "Type": "System.Int32",
+        "Name": "faciId",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "locid",
-        "Type": "System.Int32",
+        "Name": "locId",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "apart",
-        "Type": "System.Int32",
+        "Name": "appId",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],

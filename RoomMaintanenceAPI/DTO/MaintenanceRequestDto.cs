@@ -100,4 +100,18 @@
         public string EmpId { get; set; }
         public string Password { get; set; }
     }
+    public class AdminActionDTO
+    {
+        public int RequestId { get; set; }
+        public int StatusId { get; set; }
+        public string Technician { get; set; }
+        public string Admin { get; set; }
+        public string Remarks { get; set; }
+    }
+    public class ApartmentDetailsDTO
+    {
+        public string faciId { get; set; }
+        public string locId { get; set; }
+        public string appId { get; set; }
+    }
 }

@@ -26,6 +26,37 @@
         }
       }
     },
+    "/api/AdminDashboard/updateAction": {
+      "post": {
+        "tags": [
+          "AdminDashboard"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminActionDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminActionDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminActionDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/ApartmentMaster/GetAll": {
       "get": {
         "tags": [
@@ -191,27 +222,24 @@
         ],
         "parameters": [
           {
-            "name": "facid",
+            "name": "faciId",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           },
           {
-            "name": "locid",
+            "name": "locId",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           },
           {
-            "name": "apart",
+            "name": "appId",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -1024,6 +1052,32 @@
   },
   "components": {
     "schemas": {
+      "AdminActionDTO": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "technician": {
+            "type": "string",
+            "nullable": true
+          },
+          "admin": {
+            "type": "string",
+            "nullable": true
+          },
+          "remarks": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ApartmentCreateDto": {
         "type": "object",
         "properties": {

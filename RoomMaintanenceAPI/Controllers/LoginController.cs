@@ -94,8 +94,10 @@ namespace RoomMaintenanceAPI.Controllers
                 status = true,
                 errorcode = 0,
                 message = "Login successful",
-                role = user.Role,   
-                empId = user.EmpId
+                role = user.Role,
+                empId = user.EmpId,
+                empName = user.EmpName,
+                mail = user.Mail
             });
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RoomMaintenanceAPI.DTO;
 using RoomMaintenanceAPI.Models;
 
 namespace RoomMaintenanceAPI.Controllers
@@ -15,12 +16,14 @@ namespace RoomMaintenanceAPI.Controllers
             _context = context;
         }
         [HttpGet("getApartmentDetails")]
-        public async Task<IActionResult> GetApartmentDetails([FromQuery(Name = "facid")] int faciId,
-         [FromQuery(Name = "locid")] int locId,
-         [FromQuery(Name = "apart")] int appId)
+        public async Task<IActionResult> GetApartmentDetails([FromQuery] ApartmentDetailsDTO dto)
         {
             try
             {
+                int faciId = Convert.ToInt32(dto.faciId);
+                int locId = Convert.ToInt32(dto.locId);
+                int appId = Convert.ToInt32(dto.appId);
+
                 var list = await (
                  from FM in _context.FacilityMaster
                  join LM in _context.LocationMaster

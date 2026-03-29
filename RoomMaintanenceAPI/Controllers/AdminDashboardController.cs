@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RoomMaintenanceAPI.DTO;
+using RoomMaintenanceAPI.Models;
 
 namespace RoomMaintenanceAPI.Controllers
 {
@@ -93,6 +95,30 @@ namespace RoomMaintenanceAPI.Controllers
             {
                 return StatusCode(500, new { message = ex.Message });
             }
+        }
+        [HttpPost("updateAction")]
+        public async Task<IActionResult> UpdateAction(AdminActionDTO dto)
+        {
+            try
+            {
+                var request = await _context.TrnRequest.FindAsync(dto.RequestId);
+                if (request == null)
+                    return NotFound();
+
+                request.StatusId = dto.StatusId;
+                request.AdminRemark = dto.Remarks;
+                request.UpdatedBy = "admin";
+                request.Technician = dto.Technician;
+                request.Admin = dto.Admin;
+                request.UpdatedAt = DateTime.Now;
+                await _context.SaveChangesAsync();
+
+            }
+            catch (Exception ex)
+            {
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateApartment", "ApartmentMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
+            }
+            return Ok(new { message = "Apartment added successfully", status = true });
         }
         private static string getStatusbyID(int statusId)
         {
