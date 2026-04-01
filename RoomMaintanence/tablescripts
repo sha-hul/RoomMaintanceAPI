@@ -1,0 +1,196 @@
+USE [RoomMaintenance]
+GO
+
+/****** Object:  Table [rvp].[ApartmentMaster]    Script Date: 4/1/2026 4:55:47 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [rvp].[ApartmentMaster](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[LocationID] [int] NOT NULL,
+	[ApartmentName] [nvarchar](100) NOT NULL,
+	[EsubscriptionID] [nvarchar](100) NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[CreatedBy] [nvarchar](200) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedBy] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[RoomCount] [nvarchar](100) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [rvp].[ApartmentMaster] ADD  DEFAULT ((1)) FOR [IsActive]
+GO
+
+ALTER TABLE [rvp].[ApartmentMaster] ADD  DEFAULT (getdate()) FOR [CreatedDate]
+GO
+
+ALTER TABLE [rvp].[ApartmentMaster]  WITH CHECK ADD  CONSTRAINT [FK_Apartment_Location] FOREIGN KEY([LocationID])
+REFERENCES [rvp].[LocationMaster] ([Id])
+GO
+
+ALTER TABLE [rvp].[ApartmentMaster] CHECK CONSTRAINT [FK_Apartment_Location]
+GO
+
+
+-------------2
+
+USE [RoomMaintenance]
+GO
+
+/****** Object:  Table [rvp].[CategoryMaster]    Script Date: 4/1/2026 4:57:24 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [rvp].[CategoryMaster](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CategoryName] [nvarchar](100) NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[CreatedBy] [nvarchar](200) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedBy] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[CategoryName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [rvp].[CategoryMaster] ADD  DEFAULT ((1)) FOR [IsActive]
+GO
+
+ALTER TABLE [rvp].[CategoryMaster] ADD  DEFAULT (getdate()) FOR [CreatedDate]
+GO
+
+
+---------3
+
+USE [RoomMaintenance]
+GO
+
+/****** Object:  Table [rvp].[EmployeeMaster]    Script Date: 4/1/2026 4:58:24 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [rvp].[EmployeeMaster](
+	[EmpId] [nvarchar](50) NOT NULL,
+	[Password] [nvarchar](100) NOT NULL,
+	[Role] [nvarchar](50) NOT NULL,
+	[EmpName] [nvarchar](200) NULL,
+	[Mail] [nvarchar](300) NULL,
+	[dtTransaction] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[EmpId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [rvp].[EmployeeMaster] ADD  DEFAULT (getdate()) FOR [dtTransaction]
+GO
+
+
+-------4 trnRequest
+
+USE [RoomMaintenance]
+GO
+
+/****** Object:  Table [rvp].[trnrequest]    Script Date: 4/1/2026 4:59:34 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [rvp].[trnrequest](
+	[requestId] [int] IDENTITY(1,1) NOT NULL,
+	[statusId] [int] NOT NULL,
+	[updatedBy] [nvarchar](100) NOT NULL,
+	[dtTransaction] [datetime] NOT NULL,
+	[updatedAt] [datetime] NOT NULL,
+	[admin] [nvarchar](200) NULL,
+	[adminRemark] [nvarchar](1000) NULL,
+	[technician] [nvarchar](200) NULL,
+	[cost] [decimal](18, 2) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[requestId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [rvp].[trnrequest] ADD  DEFAULT (sysdatetime()) FOR [dtTransaction]
+GO
+
+ALTER TABLE [rvp].[trnrequest] ADD  DEFAULT (sysdatetime()) FOR [updatedAt]
+GO
+
+ALTER TABLE [rvp].[trnrequest] ADD  DEFAULT ((0)) FOR [cost]
+GO
+
+ALTER TABLE [rvp].[trnrequest]  WITH CHECK ADD  CONSTRAINT [FK_Request_Status] FOREIGN KEY([statusId])
+REFERENCES [rvp].[mstStatus] ([statusId])
+GO
+
+ALTER TABLE [rvp].[trnrequest] CHECK CONSTRAINT [FK_Request_Status]
+GO
+
+
+----------5 trnrequestdetails
+
+USE [RoomMaintenance]
+GO
+
+/****** Object:  Table [rvp].[trnrequestdetails]    Script Date: 4/1/2026 5:00:01 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [rvp].[trnrequestdetails](
+	[requestId] [int] NOT NULL,
+	[empId] [nvarchar](10) NOT NULL,
+	[employeeName] [nvarchar](100) NOT NULL,
+	[contactNo] [nvarchar](20) NOT NULL,
+	[facility] [int] NOT NULL,
+	[Location] [int] NOT NULL,
+	[Apartment] [int] NOT NULL,
+	[category] [int] NOT NULL,
+	[subCategory] [int] NOT NULL,
+	[description] [nvarchar](500) NOT NULL,
+	[attachment] [nvarchar](400) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[requestId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [rvp].[trnrequestdetails]  WITH CHECK ADD  CONSTRAINT [FK_RequestDetails_Request] FOREIGN KEY([requestId])
+REFERENCES [rvp].[trnrequest] ([requestId])
+GO
+
+ALTER TABLE [rvp].[trnrequestdetails] CHECK CONSTRAINT [FK_RequestDetails_Request]
+GO
+
+
+
