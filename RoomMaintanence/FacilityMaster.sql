@@ -79,4 +79,4 @@
 --        FOREIGN KEY (CategoryID) REFERENCES rvp.CategoryMaster(Id),
 --);
 
-SELECT * FROM rvp.SubCategoryMaster;
+--SELECT * FROM rvp.SubCategoryMaster;

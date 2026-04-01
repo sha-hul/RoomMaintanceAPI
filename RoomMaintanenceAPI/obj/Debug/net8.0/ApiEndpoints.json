@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "RoomMaintenanceAPI.Controllers.AdminDashboardController",
+    "Method": "GetFile",
+    "RelativePath": "api/AdminDashboard/GetFile/{requestId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.AdminDashboardController",
     "Method": "GetRequestDetails",
     "RelativePath": "api/AdminDashboard/getRequestdetails",
     "HttpMethod": "GET",
@@ -117,6 +133,22 @@
   },
   {
     "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMicrositeController",
+    "Method": "CancelMaintenanceRequest",
+    "RelativePath": "api/ApartmentMicrosite/cancelMaintenanceRequest/{reqId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reqId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMicrositeController",
     "Method": "DecryptQr",
     "RelativePath": "api/ApartmentMicrosite/decrypt",
     "HttpMethod": "POST",
@@ -160,7 +192,7 @@
   {
     "ContainingType": "RoomMaintenanceAPI.Controllers.ApartmentMicrositeController",
     "Method": "GetApartmentRequestDetails",
-    "RelativePath": "api/ApartmentMicrosite/getApartmentRequestDetails",
+    "RelativePath": "api/ApartmentMicrosite/getApartmentRequestDetails/{appId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -168,7 +200,7 @@
       {
         "Name": "appId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -502,9 +534,59 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "RoomMaintenanceAPI.DTO.MaintenanceRequestDto",
-        "IsRequired": true
+        "Name": "Facility",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Location",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Apartment",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "SubCategory",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Attachment",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmployeeName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContactNo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UpdatedBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "EmpId",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

@@ -69,8 +69,6 @@
 --    LoggedAt DATETIME NULL
 --);
 
---ALTER TABLE rvp.trnErrorLog
---ALTER COLUMN ;
 
 --select * from rvp.trnErrorLog
 
@@ -90,3 +88,4 @@
 --('EMP002', 'pass456', 'User');
 
 --update rvp.employeemaster set password = 'HUWY0ZSbR/fyERNLY57DIjjOcwhqg8L3RXE7PxL4F+U=' where empid= 'EMP002'
+

@@ -34,6 +34,7 @@ namespace RoomMaintenanceAPI.Controllers
                     from SCM in scmJoin.DefaultIfEmpty()
 
                     where reqD.EmpId == empId
+                    && req.StatusId != 7
                     orderby req.RequestId ascending
 
                     select new

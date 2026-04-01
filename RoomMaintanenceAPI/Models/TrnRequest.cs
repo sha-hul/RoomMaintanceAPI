@@ -10,6 +10,7 @@
         public string? Technician { get; set; }
         public DateTime DtTransaction { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public decimal Cost { get; set; }
         public TrnRequestDetails Details { get; set; }
     }
 

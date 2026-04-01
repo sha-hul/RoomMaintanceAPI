@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using RoomMaintenanceAPI.DTO;
 using RoomMaintenanceAPI.Models;
+using System.Net.Mail;
 
 namespace RoomMaintenanceAPI.Controllers
 {
@@ -47,6 +48,8 @@ namespace RoomMaintenanceAPI.Controllers
                         on reqD.SubCategory equals SCM.Id into scmJoin
                     from SCM in scmJoin.DefaultIfEmpty()
 
+                    where req.StatusId != 7
+
                     orderby req.DtTransaction descending
 
                     select new
@@ -66,6 +69,8 @@ namespace RoomMaintenanceAPI.Controllers
                         admin = req.Admin,
                         adminRemarks = req.AdminRemark,
                         technician = req.Technician,
+                        cost = req.Cost,
+                        attachment = reqD.Attachment
                     }
                 ).ToListAsync();
 
@@ -86,6 +91,8 @@ namespace RoomMaintenanceAPI.Controllers
                     x.admin,
                     x.adminRemarks,
                     x.technician,
+                    x.cost,
+                    x.attachment,
                     status = getStatusbyID(x.status)
                 });
 
@@ -96,6 +103,7 @@ namespace RoomMaintenanceAPI.Controllers
                 return StatusCode(500, new { message = ex.Message });
             }
         }
+
         [HttpPost("updateAction")]
         public async Task<IActionResult> UpdateAction(AdminActionDTO dto)
         {
@@ -111,6 +119,7 @@ namespace RoomMaintenanceAPI.Controllers
                 request.Technician = dto.Technician;
                 request.Admin = dto.Admin;
                 request.UpdatedAt = DateTime.Now;
+                request.Cost = dto.Cost;
                 await _context.SaveChangesAsync();
 
             }
@@ -119,6 +128,56 @@ namespace RoomMaintenanceAPI.Controllers
                 return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateApartment", "ApartmentMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
             }
             return Ok(new { message = "Apartment added successfully", status = true });
+        }
+        [HttpGet]
+        [Route("GetFile/{requestId}")]
+        public async Task<IActionResult> GetFile(int requestId)
+        {
+            try
+            {
+                // Get attachment filename from DB by requestId
+                var details = await _context.TrnRequestDetails
+                    .FirstOrDefaultAsync(x => x.RequestId == requestId);
+
+                if (details == null || string.IsNullOrEmpty(details.Attachment))
+                    return NotFound(new { message = "File not found", status = false });
+
+                // Build file path
+                var uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "Upload");
+                var filePath = Path.Combine(uploadFolder, details.Attachment);
+
+                if (!System.IO.File.Exists(filePath))
+                    return NotFound(new { message = "File does not exist on server", status = false });
+
+                // Detect MIME type
+                var ext = Path.GetExtension(details.Attachment).ToLower();
+                var mimeTypes = new Dictionary<string, string>
+                {
+                    { ".jpg",  "image/jpeg" },
+                    { ".jpeg", "image/jpeg" },
+                    { ".png",  "image/png" },
+                    { ".webp", "image/webp" },
+                    { ".pdf",  "application/pdf" },
+                    { ".mp4",  "video/mp4" },
+                    { ".mov",  "video/quicktime" },
+                    { ".doc",  "application/msword" },
+                    { ".docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document" },
+                    { ".xls",  "application/vnd.ms-excel" },
+                    { ".xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" },
+                };
+
+                var mime = mimeTypes.ContainsKey(ext)
+                    ? mimeTypes[ext]
+                    : "application/octet-stream";
+
+                // Return file
+                var fileBytes = await System.IO.File.ReadAllBytesAsync(filePath);
+                return File(fileBytes, mime, details.Attachment);
+            }
+            catch (Exception ex)
+            {
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetFile", "MaintenanceRequest", "400", requestId.ToString());
+            }
         }
         private static string getStatusbyID(int statusId)
         {

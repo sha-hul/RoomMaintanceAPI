@@ -69,8 +69,8 @@ namespace RoomMaintenanceAPI.Controllers
                 return StatusCode(500, new { message = ex.Message });
             }
         }
-        [HttpGet("getApartmentRequestDetails")]
-        public async Task<IActionResult> GetApartmentRequestDetails([FromQuery] int appId)
+        [HttpGet("getApartmentRequestDetails/{appId}")]
+        public async Task<IActionResult> GetApartmentRequestDetails([FromRoute] int appId)
         {
             try
             {
@@ -91,15 +91,16 @@ namespace RoomMaintenanceAPI.Controllers
                     join ST in _context.MstStatus
                         on req.StatusId equals ST.StatusId into stJoin
                     from ST in stJoin.DefaultIfEmpty()
-                    where AM.Id == appId
-                    orderby req.RequestId ascending
+                    where AM.Id == appId 
+                       && req.StatusId != 7
+                    orderby req.DtTransaction descending
                     select new
                     {
                         id = req.RequestId,
                         category = CM.CategoryName,
                         subCategory = SCM.SubCategoryName,
                         date = req.DtTransaction,
-                        status = req.StatusId,
+                        status = ST.StatusName,
                         description = reqD.Description,
                         adminRemark = req.AdminRemark,
                         attachment = reqD.Attachment
@@ -113,6 +114,28 @@ namespace RoomMaintenanceAPI.Controllers
                 return StatusCode(500, new { message = ex.Message });
             }
         }
+        [HttpPut("cancelMaintenanceRequest/{reqId}")]
+        public async Task<IActionResult> CancelMaintenanceRequest([FromRoute]int reqId)
+        {
+            try
+            {
+                var request = await _context.TrnRequest.FindAsync(reqId);
+                if (request == null)
+                    return NotFound();
+
+                request.StatusId = 7;
+                request.UpdatedBy = "user";
+                request.UpdatedAt = DateTime.Now;
+                await _context.SaveChangesAsync();
+
+            }
+            catch (Exception ex)
+            {
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CancelMaintenanceRequest", "ApartmentMicrosite", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
+            }
+            return Ok(new { message = "Request Cancelled successfully", status = true });
+        }
+
         [HttpPost("decrypt")]
         public IActionResult DecryptQr([FromBody] QrRequest req)
         {

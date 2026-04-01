@@ -8,7 +8,7 @@
         public int Category { get; set; }
         public int SubCategory { get; set; }
         public string Description { get; set; }
-        public string? Attachment { get; set; }
+        public IFormFile? Attachment { get; set; }
         public string EmployeeName { get; set; }
         public string ContactNo { get; set; }
         public string UpdatedBy { get; set; }
@@ -107,6 +107,7 @@
         public string Technician { get; set; }
         public string Admin { get; set; }
         public string Remarks { get; set; }
+        public decimal Cost { get; set; }
     }
     public class ApartmentDetailsDTO
     {

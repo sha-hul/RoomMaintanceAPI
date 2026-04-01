@@ -1,4 +1,4 @@
---use RoomMaintenance
+﻿--use RoomMaintenance
 
 SELECT 
     req.requestId,
@@ -63,11 +63,37 @@ select * from rvp.EmployeeMaster
 
 select * from rvp.mstStatus order by 1
 
---update rvp.mstStatus set statusName = 'Rejected' where statusId = 4
 
-ALTER TABLE rvp.trnrequest
-ADD admin NVARCHAR(200),
-    adminRemark NVARCHAR(1000),
-    technician NVARCHAR(200);
+--update rvp.mstStatus set statusName = 'InProgress' where statusId = 2
 
-sp_help 'rvp.trnrequestdetails'
+--ALTER TABLE rvp.trnrequest
+--ADD admin NVARCHAR(200),
+--    adminRemark NVARCHAR(1000),
+--    technician NVARCHAR(200);
+
+--SELECT 
+--    FM.FacilityName    AS Facility,
+--    LM.LocationName    AS Location,
+--    AM.ApartmentName   AS Apartment,
+--    AM.EsubscriptionID AS SubscriptionId,
+--    AM.RoomCount       AS RoomCount,
+--    AM.IsActive        AS IsActive,
+--    LM.Gym             AS Gym,
+--    LM.Pool            AS Pool
+--FROM rvp.FacilityMaster FM
+--LEFT JOIN rvp.LocationMaster LM          -- Step 1: FM → LM (one-to-many)
+--       ON LM.FacilityID = FM.Id
+--LEFT JOIN rvp.ApartmentMaster AM         -- Step 2: LM → AM (one-to-many)
+--       ON AM.LocationID = LM.Id
+--WHERE FM.Id = 4
+--  AND LM.Id = 5
+--  AND AM.Id  = 6
+
+--sp_help 'rvp.EmployeeMaster'
+
+--ALTER TABLE rvp.EmployeeMaster
+--ADD EmpName NVARCHAR(200),
+--    Mail NVARCHAR(300),
+--    dtTransaction DateTime Default GetDate();
+
+--update rvp.trnrequest set statusId = 1 where requestId= 12

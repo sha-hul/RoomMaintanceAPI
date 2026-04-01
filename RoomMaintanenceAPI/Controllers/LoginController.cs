@@ -83,7 +83,7 @@ namespace RoomMaintenanceAPI.Controllers
             Response.Cookies.Append("auth_token", jwtToken, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true,          // only over HTTPS
+                Secure = true,          
                 SameSite = SameSiteMode.Strict,
                 Expires = DateTimeOffset.UtcNow.AddHours(2)
             });

@@ -17,26 +17,60 @@ namespace RoomMaintenanceAPI.Controllers
 
         [HttpPost]
         [Route("SubmitRequest")]
-        public async Task<IActionResult> SubmitRequest([FromBody] MaintenanceRequestDto dto)
+        public async Task<IActionResult> SubmitRequest([FromForm] MaintenanceRequestDto dto)
         {
-            // Start a database transaction
             await using var transaction = await _context.Database.BeginTransactionAsync();
-
             try
             {
-                // 1. Insert into trnrequest
+                // 1. Handle file upload
+                string? savedFileName = null;
+                if (dto.Attachment != null && dto.Attachment.Length > 0)
+                {
+                    // Validate file type
+                    var allowedExtensions = new[] {
+                        ".jpg", ".jpeg", ".png", ".webp", ".heic",  // Images
+                        ".pdf",                                      // PDF
+                        ".doc", ".docx",                             // Word
+                        ".xls", ".xlsx",                             // Excel
+                        ".mp4", ".mov", ".avi"                       // Videos
+                    };
+                    var extension = Path.GetExtension(dto.Attachment.FileName).ToLower();
+                    if (!allowedExtensions.Contains(extension))
+                        return BadRequest(new { message = "Invalid file type", status = false });
+
+                    // Validate file size (10MB)
+                    if (dto.Attachment.Length > 10 * 1024 * 1024)
+                        return BadRequest(new { message = "File size exceeds 10MB", status = false });
+
+                    // Generate unique file name to avoid overwrite
+                    var uniqueFileName = $"{Guid.NewGuid()}_{dto.Attachment.FileName}";
+
+                    // Save to Upload folder
+                    var uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "Upload");
+                    if (!Directory.Exists(uploadFolder))
+                        Directory.CreateDirectory(uploadFolder);
+
+                    var filePath = Path.Combine(uploadFolder, uniqueFileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await dto.Attachment.CopyToAsync(stream);
+                    }
+
+                    savedFileName = uniqueFileName;
+                }
+
+                // 2. Insert into trnrequest
                 var request = new TrnRequest
                 {
-                    StatusId = 1, //Pending
+                    StatusId = 1,
                     UpdatedBy = dto.UpdatedBy,
                     DtTransaction = DateTime.Now,
                     UpdatedAt = DateTime.Now
                 };
-
                 _context.TrnRequest.Add(request);
-                await _context.SaveChangesAsync(); // generates RequestId
+                await _context.SaveChangesAsync();
 
-                // 2. Insert into trnrequestdetails
+                // 3. Insert into trnrequestdetails
                 var details = new TrnRequestDetails
                 {
                     RequestId = request.RequestId,
@@ -49,15 +83,12 @@ namespace RoomMaintenanceAPI.Controllers
                     Category = dto.Category,
                     SubCategory = dto.SubCategory,
                     Description = dto.Description,
-                    Attachment = dto.Attachment
+                    Attachment = savedFileName
                 };
-
                 _context.TrnRequestDetails.Add(details);
                 await _context.SaveChangesAsync();
 
-                // Commit the transaction
                 await transaction.CommitAsync();
-
                 return Ok(new
                 {
                     message = "Request submitted successfully",
@@ -69,7 +100,6 @@ namespace RoomMaintenanceAPI.Controllers
             {
                 return await ErrorHandler.HandleExceptionAsync(ex, transaction, _context, dto, "SubmitRequest", "MaintenanceRequest", "400", dto.EmpId);
             }
-
         }
 
         [HttpGet("getFacilities")]
