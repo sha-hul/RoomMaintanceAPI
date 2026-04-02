@@ -592,6 +592,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "RoomMaintenanceAPI.Controllers.RegisterAdminController",
+    "Method": "RegisterAdmin",
+    "RelativePath": "api/RegisterAdmin/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "RoomMaintenanceAPI.DTO.RegisterAdminDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "RoomMaintenanceAPI.Controllers.SubCategoryMasterController",
     "Method": "Create",
     "RelativePath": "api/SubCategoryMaster/Create",

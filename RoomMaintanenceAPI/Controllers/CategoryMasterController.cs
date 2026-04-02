@@ -22,12 +22,12 @@ namespace RoomMaintenanceAPI.Controllers
         {
             try
             {
-                var list = await _context.CategoryMaster.ToListAsync();//#Shahul# what's this means in entity framework
+                var list = await _context.CategoryMaster.ToListAsync();
                 return Ok(list);
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetAllCategory", "CategoryMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation 
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetAll", "CategoryMaster", "400", "");  
             }
         }
 
@@ -41,7 +41,7 @@ namespace RoomMaintenanceAPI.Controllers
                 {
                     CategoryName = dto.Name,
                     IsActive = dto.Status,
-                    CreatedBy = "admin", //#Shahul# EmpID JWT Token Implementation 
+                    CreatedBy = "admin",  
                     CreatedDate = DateTime.Now
                 };
 
@@ -51,7 +51,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateCategory", "CategoryMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation 
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateCategory", "CategoryMaster", "400", "");  
             }
             return Ok(new { message = "Category added successfully", status = true });
         }
@@ -62,12 +62,12 @@ namespace RoomMaintenanceAPI.Controllers
         {
             try
             {
-                var category = await _context.CategoryMaster.FindAsync(id);//#Shahul# what's this means in entity framework
+                var category = await _context.CategoryMaster.FindAsync(id);
                 if (category == null)
                     return NotFound();
 
                 category.CategoryName = dto.Name;
-                category.UpdatedBy = "admin"; //#Shahul# EmpID JWT Token Implementation 
+                category.UpdatedBy = "admin";  
                 category.UpdatedDate = DateTime.Now;
 
                 await _context.SaveChangesAsync();
@@ -76,7 +76,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateCategory", "CategoryMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation 
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateCategory", "CategoryMaster", "400", "");  
             }
         }
 
@@ -116,7 +116,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateStatusCategory", "CategoryMaster", "400", "C2064");
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateStatusCategory", "CategoryMaster", "400", "");
             }
         }
 

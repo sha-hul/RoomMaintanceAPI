@@ -17,7 +17,7 @@ namespace RoomMaintenanceAPI.Controllers
 
         [HttpPost]
         [Route("SubmitRequest")]
-        public async Task<IActionResult> SubmitRequest([FromForm] MaintenanceRequestDto dto)
+        public async Task<IActionResult> SubmitRequest([FromForm] MaintenanceDTO dto)
         {
             await using var transaction = await _context.Database.BeginTransactionAsync();
             try
@@ -112,7 +112,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetFacilities", "MaintenanceRequest", "400", "C2064");
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetFacilities", "MaintenanceRequest", "400", "");
             }
         }
 
@@ -131,7 +131,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetApartmentsByFacility", "MaintenanceRequest", "400", "C2064");
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetApartmentsByFacility", "MaintenanceRequest", "400", "");
             }
         }
 
@@ -147,7 +147,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetApartmentsByLocation", "MaintenanceRequest", "400", "C2064");
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetApartmentsByLocation", "MaintenanceRequest", "400", "");
             }
         }
 
@@ -162,7 +162,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetCategories", "MaintenanceRequest", "400", "C2064");
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetCategories", "MaintenanceRequest", "400", "");
             }
         }
 
@@ -177,7 +177,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetSubCategoriesByCategory", "MaintenanceRequest", "400", "C2064");
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetSubCategoriesByCategory", "MaintenanceRequest", "400", "");
             }
         }
     }

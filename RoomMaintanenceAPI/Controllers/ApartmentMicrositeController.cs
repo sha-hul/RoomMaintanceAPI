@@ -66,7 +66,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetApartmentDetails", "ApartmentMicrosite", "400", "");
             }
         }
         [HttpGet("getApartmentRequestDetails/{appId}")]
@@ -111,7 +111,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetApartmentRequestDetails", "ApartmentMicrosite", "400", "");
             }
         }
         [HttpPut("cancelMaintenanceRequest/{reqId}")]
@@ -131,7 +131,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CancelMaintenanceRequest", "ApartmentMicrosite", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CancelMaintenanceRequest", "ApartmentMicrosite", "400", ""); 
             }
             return Ok(new { message = "Request Cancelled successfully", status = true });
         }

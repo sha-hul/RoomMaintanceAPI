@@ -27,7 +27,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetAllSubCategory", "SubCategoryMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation 
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetAllSubCategory", "SubCategoryMaster", "400", "");  
             }
         }
 
@@ -42,7 +42,7 @@ namespace RoomMaintenanceAPI.Controllers
                     CategoryID = dto.CategoryId,
                     SubCategoryName = dto.Name,
                     IsActive = dto.Status,
-                    CreatedBy = "admin", //#Shahul# EmpID JWT Token Implementation 
+                    CreatedBy = "admin",  
                     CreatedDate = DateTime.Now
                 };
 
@@ -52,7 +52,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateSubCategory", "SubCategoryMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateSubCategory", "SubCategoryMaster", "400", ""); 
             }
             return Ok(new { message = "SubCategory added successfully", status = true });
         }
@@ -69,7 +69,7 @@ namespace RoomMaintenanceAPI.Controllers
 
                 subCategory.CategoryID = dto.CategoryId;
                 subCategory.SubCategoryName = dto.Name;
-                subCategory.UpdatedBy = "admin"; //#Shahul# EmpID JWT Token Implementation 
+                subCategory.UpdatedBy = "admin";  
                 subCategory.UpdatedDate = DateTime.Now;
 
                 await _context.SaveChangesAsync();
@@ -78,7 +78,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateSubCategory", "SubCategoryMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateSubCategory", "SubCategoryMaster", "400", ""); 
             }
         }
 
@@ -92,7 +92,7 @@ namespace RoomMaintenanceAPI.Controllers
                     return NotFound();
 
                 subCategory.IsActive = dto.Status;
-                subCategory.UpdatedBy = "admin"; //#Shahul# EmpID JWT Token Implementation 
+                subCategory.UpdatedBy = "admin";  
                 subCategory.UpdatedDate = DateTime.Now;
 
                 await _context.SaveChangesAsync();
@@ -101,7 +101,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateStatusSubCategory", "SubCategoryMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateStatusSubCategory", "SubCategoryMaster", "400", ""); 
             }
         }
     }

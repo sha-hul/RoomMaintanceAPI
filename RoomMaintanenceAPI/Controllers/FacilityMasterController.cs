@@ -22,12 +22,12 @@ namespace RoomMaintenanceAPI.Controllers
         {
             try
             {
-                var list = await _context.FacilityMaster.ToListAsync();//#Shahul# what's this means in entity framework
+                var list = await _context.FacilityMaster.ToListAsync();
                 return Ok(list);
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetAllFacility", "FacilityMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation 
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetAllFacility", "FacilityMaster", "400", "");  
             }
         }
 
@@ -41,7 +41,7 @@ namespace RoomMaintenanceAPI.Controllers
                 {
                     FacilityName = dto.Name,
                     IsActive = dto.Status,
-                    CreatedBy = "admin", //#Shahul# EmpID JWT Token Implementation 
+                    CreatedBy = "admin",  
                     CreatedDate = DateTime.Now
                 };
 
@@ -51,7 +51,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateFacility", "FacilityMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation 
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateFacility", "FacilityMaster", "400", "");  
             }
             return Ok(new { message = "Facility added successfully", status = true });
         }
@@ -62,12 +62,12 @@ namespace RoomMaintenanceAPI.Controllers
         {
             try
             {
-                var facility = await _context.FacilityMaster.FindAsync(id);//#Shahul# what's this means in entity framework
+                var facility = await _context.FacilityMaster.FindAsync(id);
                 if (facility == null)
                     return NotFound();
 
                 facility.FacilityName = dto.Name;
-                facility.UpdatedBy = "admin"; //#Shahul# EmpID JWT Token Implementation 
+                facility.UpdatedBy = "admin";  
                 facility.UpdatedDate = DateTime.Now;
 
                 await _context.SaveChangesAsync();
@@ -76,7 +76,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateFacility", "FacilityMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation 
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateFacility", "FacilityMaster", "400", "");  
             }
         }
 
@@ -124,7 +124,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null,"UpdateStatusFacility", "FacilityMaster", "400", "C2064");
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null,"UpdateStatusFacility", "FacilityMaster", "400", "");
             }
         }
 
@@ -144,7 +144,7 @@ namespace RoomMaintenanceAPI.Controllers
             {
                 return await ErrorHandler.HandleExceptionAsync(
                     ex, null, _context, null,
-                    "GetLocationsByFacility", "Facility", "400", "C2064"
+                    "GetLocationsByFacility", "Facility", "400", ""
                 );
             }
         }

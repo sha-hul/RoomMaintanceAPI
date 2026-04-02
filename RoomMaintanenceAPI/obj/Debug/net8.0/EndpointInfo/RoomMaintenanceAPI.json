@@ -996,6 +996,37 @@
         }
       }
     },
+    "/api/RegisterAdmin/register": {
+      "post": {
+        "tags": [
+          "RegisterAdmin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterAdminDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterAdminDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterAdminDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/SubCategoryMaster/GetAll": {
       "get": {
         "tags": [
@@ -1393,6 +1424,32 @@
             "nullable": true
           },
           "apart": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterAdminDTO": {
+        "type": "object",
+        "properties": {
+          "empId": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "empName": {
+            "type": "string",
+            "nullable": true
+          },
+          "mail": {
             "type": "string",
             "nullable": true
           }

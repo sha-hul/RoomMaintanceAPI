@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using RoomMaintenanceAPI.DTO;
 using RoomMaintenanceAPI.Models;
-using System.Net.Mail;
 
 namespace RoomMaintenanceAPI.Controllers
 {
@@ -74,7 +73,6 @@ namespace RoomMaintenanceAPI.Controllers
                     }
                 ).ToListAsync();
 
-                // Apply status mapping AFTER EF query
                 var result = list.Select(x => new
                 {
                     x.id,
@@ -100,7 +98,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetRequestdetails", "AdminDashboard", "400", "");
             }
         }
 
@@ -125,7 +123,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateApartment", "ApartmentMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "updateAction", "AdminDashboard", "400", "");
             }
             return Ok(new { message = "Apartment added successfully", status = true });
         }
@@ -176,7 +174,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetFile", "MaintenanceRequest", "400", requestId.ToString());
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "GetFile", "AdminDashboard", "400", "");
             }
         }
         private static string getStatusbyID(int statusId)

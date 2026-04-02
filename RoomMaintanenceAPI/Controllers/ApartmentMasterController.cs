@@ -46,10 +46,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(
-                    ex, null, _context, null,
-                    "GetAllApartment", "ApartmentMaster", "400", "C2064"
-                );
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null,"GetAllApartment", "ApartmentMaster", "400", "");
             }
         }
 
@@ -64,7 +61,7 @@ namespace RoomMaintenanceAPI.Controllers
                     LocationID = dto.LocationId,
                     ApartmentName = dto.Name,
                     IsActive = dto.Status,
-                    CreatedBy = "admin", //#Shahul# EmpID JWT Token Implementation 
+                    CreatedBy = "admin",  
                     CreatedDate = DateTime.Now,
                     EsubscriptionID = dto.EsubscriptionID,
                     RoomCount = dto.RoomCount
@@ -76,7 +73,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateApartment", "ApartmentMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "CreateApartment", "ApartmentMaster", "400", "");
             }
             return Ok(new { message = "Apartment added successfully", status = true });
         }
@@ -93,7 +90,7 @@ namespace RoomMaintenanceAPI.Controllers
 
                 apartment.LocationID = dto.LocationId;
                 apartment.ApartmentName = dto.Name;
-                apartment.UpdatedBy = "admin"; //#Shahul# EmpID JWT Token Implementation 
+                apartment.UpdatedBy = "admin";  
                 apartment.UpdatedDate = DateTime.Now;
                 apartment.EsubscriptionID = dto.EsubscriptionID;
                 apartment.RoomCount = dto.RoomCount;
@@ -103,7 +100,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateApartment", "ApartmentMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateApartment", "ApartmentMaster", "400", "");
             }
         }
 
@@ -117,7 +114,7 @@ namespace RoomMaintenanceAPI.Controllers
                     return NotFound();
 
                 apartment.IsActive = dto.Status;
-                apartment.UpdatedBy = "admin"; //#Shahul# EmpID JWT Token Implementation 
+                apartment.UpdatedBy = "admin";  
                 apartment.UpdatedDate = DateTime.Now;
 
                 await _context.SaveChangesAsync();
@@ -126,7 +123,7 @@ namespace RoomMaintenanceAPI.Controllers
             }
             catch (Exception ex)
             {
-                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateStatusApartment", "ApartmentMaster", "400", "C2064"); //#Shahul# EmpID JWT Token Implementation
+                return await ErrorHandler.HandleExceptionAsync(ex, null, _context, null, "UpdateStatusApartment", "ApartmentMaster", "400", ""); 
             }
         }
 
